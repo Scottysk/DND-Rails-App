@@ -10,6 +10,23 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <header class='clearfix'>
+  <div class="left-nav">
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+    </ul>
+  </div>
+  <div class="right-nav">
+    <ul>
+      <li><%= link_to "Register", register_path %></li>
+    </ul>
+  </div>
+</header>
+
+<div class='content'>
+  <%= yield %>
+</div>
+
   </body>
 </html>
