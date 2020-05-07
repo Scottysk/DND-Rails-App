@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
-	def new
-
+	def new # GET /register
+		if session[:current_user_id]
+			redirect_to "/", :notice => "You are already logged in."
+		end
 	end
 
 	def create
@@ -12,5 +14,5 @@ class UsersController < ApplicationController
 		redirect_to "/login"
 	end
 
-	
+
 end
