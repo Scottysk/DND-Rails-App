@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			#login(@user)
 			redirect_to root_path
 		else
-			redirect_to root_path, :notice => "Invalid username or password."
+			redirect_to login_path, :notice => "Invalid username or password."
 		end
 	end
 
