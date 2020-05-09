@@ -17,20 +17,22 @@
       <li><%= link_to "Home", root_path %></li>
     </ul>
   </div>
-  <% if session[:current_user_id] %>
-  <nav>
-    You are logged in as: <%= @current_user.username %>
-    <a href="/logout">Logout</a>
-  </nav>
-  <% end %>
+
   <div class="right-nav">
     <ul>
       <li><%= link_to "Register", register_path %></li>
     </ul>
   </div>
+
   <div class="right-nav">
     <ul>
       <li><%= link_to "Login", login_path %></li>
+    </ul>
+  </div>
+
+  <div class="right-nav">
+    <ul>
+      <li><%= link_to "Logout", logout_path, method: :delete %></li>
     </ul>
   </div>
 
