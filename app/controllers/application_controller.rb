@@ -5,16 +5,19 @@ class ApplicationController < ActionController::Base
 	end
 
 
+
 	private 
 	
 	def current_user
-		if session[:current_user_id]
-			@current_user = User.find(session[:current_user_id])
-		end
+		@current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
 	end
 
-	def login(user)
-		session[:current_user_id] = @user.id
+	def logged_in?
+		!!session[user_id]
+	end
+
+	def redirect_if_not_logged_in
+		redirect_to '/' if !logged_in?
 	end
 
 
