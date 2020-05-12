@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
 	end
 
 	def create
-		@character = user.characterrs.build(character_params)
+		@character = current_user.characterrs.build(character_params)
 		if @character.save
 			redirect_to characters_path
 		else
