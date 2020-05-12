@@ -5,6 +5,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :gender
       t.string :race
       t.string :profession
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end
