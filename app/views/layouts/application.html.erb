@@ -12,11 +12,9 @@
   <body>
 
     <header class='clearfix'>
-  <div class="left-nav">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-    </ul>
-  </div>
+
+
+  <% if !logged_in? %>
 
   <div class="right-nav">
     <ul>
@@ -30,11 +28,23 @@
     </ul>
   </div>
 
+  <% else %>
+
   <div class="right-nav">
     <ul>
       <li><%= link_to "Logout", logout_path, method: :delete %></li>
     </ul>
   </div>
+
+  <div class="left-nav">
+      <%= link_to "Home", root_path %>
+      <%= link_to "Create Character", new_character_path %>
+  </div>
+
+
+
+
+  <% end %>
 
 </header>
 
