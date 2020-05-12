@@ -1,4 +1,5 @@
 class CharactersController < ApplicationController
+	before_action :redirect_if_not_logged_in
 
 	def new
 		@character = Character.new
@@ -20,7 +21,7 @@ class CharactersController < ApplicationController
 	private
 
 	def character_params
-		character.require(:character).permit(:name, :gender, :race, :profession)
+		params.require(:character).permit(:name, :gender, :race, :profession)
 	end
 	
 end
