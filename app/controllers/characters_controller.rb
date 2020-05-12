@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
 	end
 
 	def create
-		@character = Character.new(character_params)
+		@character = user.characterrs.build(character_params)
 		if @character.save
 			redirect_to characters_path
 		else
@@ -18,8 +18,8 @@ class CharactersController < ApplicationController
 
 	private
 
-	def post_params
-		params.require(:character).permit(:name, :gender, :race, :profession)
+	def character_params
+		character.require(:character).permit(:name, :gender, :race, :profession)
 
 	
 end
