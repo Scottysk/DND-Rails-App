@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  get '/auth/:provider/callback' => 'sessions#create' #omniauth
+
   resources :users
   resources :characters
 

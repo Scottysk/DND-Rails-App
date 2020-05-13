@@ -13,9 +13,13 @@ class SessionsController < ApplicationController
 		if @user && @user.authenticate(params[:user][:password])
 			session[:user_id] = @user.id
 			redirect_to user_path(@user)
-		else
-			flash[:message] = "Invalid username or password."
-			redirect_to login_path
+
+		#elsif  auth = request.env["omniauth.auth"]
+		#	@user = User.find_or_create_by_omniauth(auth)
+      	#	session[:user_id] = @user.id
+      	#	redirect_to root_path
+
+		else request.env['omniauth.auth']
 		end
 	end
 
@@ -23,6 +27,12 @@ class SessionsController < ApplicationController
 	def destroy
 		session.clear
 		redirect_to root_path
+	end
+
+	protected
+
+	def auth_hash
+		request.env['omniauth.auth']
 	end
 
 
