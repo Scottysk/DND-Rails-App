@@ -18,8 +18,12 @@
 
 
   <div class="left-nav">
-      <%= link_to "Login", login_path %>
-      <%= link_to "Register", register_path %>
+      <%= link_to "Login |", login_path %>
+      <%= link_to "Register |", register_path %>
+  </div>
+
+  <div class="left-nav">
+      <%= link_to "Login with Google", "/auth/google_oauth2" %>
   </div>
 
   <% else %>
@@ -33,7 +37,6 @@
       <%= link_to "All Characters", characters_path %>
       <%= link_to "Create Character", new_character_path %>
   </div>
-
 
 
 
