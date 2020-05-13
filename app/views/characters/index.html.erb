@@ -1,4 +1,8 @@
 <h1> All Characters </h1>
 
 
-<h2> <%= @characters.name %> </h2>
+<% @characters.each do |char| %>
+
+<li><%= char.name %></li>
+
+<% end %>
