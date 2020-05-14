@@ -3,6 +3,6 @@
 
 <% @characters.each do |char| %>
 
-<li><%= char.name %></li>
+<li> <%= link_to char.name, character_path(char) %> </li>
 
 <% end %>
