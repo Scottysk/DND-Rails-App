@@ -1,0 +1,19 @@
+<h1> Edit Character </h1>
+
+<%= form_for(@character) do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :gender %>
+<%= f.select(:gender, ["Male", "Female", "Other"]) %>
+
+<%= f.label :race %>
+<%= f.text_field :race %>
+
+<%= f.label :profession %>
+<%= f.text_field :profession %>
+
+<%= f.submit %>
+
+<% end %>
