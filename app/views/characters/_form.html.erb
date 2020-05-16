@@ -1,0 +1,17 @@
+<%= form_for(@character) do |f| %>
+
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :gender %>
+<%= f.select(:gender, ["Male", "Female", "Other"]) %>
+
+<%= f.label :race %>
+<%= f.select(:race, ["Elf", "Human", "Half Elf", "Gnome", "Dwarf", "Dragonborn", "Halfling", "Tiefling", "Aarakocra", "Genasi", "Goliath", "Aasimar", "Orc", "Half Orc"]) %>
+
+<%= f.label :profession %>
+<%= f.select(:profession, ["Bard", "Barbarian", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorceror", "Warlock", "Wizard","Blood Hunter"]) %>
+
+<%= f.submit %>
+
+<% end %>

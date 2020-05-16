@@ -24,6 +24,14 @@
 
 <p></p>
 
-<% @comments.each do |c|%>
-  <li><%= c.user.username%>: <%= c.content%>
-<% end %>
+ <% @character.comments.each do |c| %>
+
+	<% if c.content == 0 %>
+	There are no comments.
+	<% else %>
+	<hr>
+	<%= c.user.try(:username) %> <%= c.content %>
+	<% end %>
+
+<% end %> 
+

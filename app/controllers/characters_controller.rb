@@ -19,7 +19,7 @@ class CharactersController < ApplicationController
 	end
 
 	def show
-		@comments = Comment.all
+		@comments = Comment.find(params[:id])
 		@character = Character.find(params[:id]) 
 	end
 
