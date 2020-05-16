@@ -1,5 +1,5 @@
 <ul> 
 	<% comments.each do |com| %>
-	<li> You said: <%= com.content  %> to <%= com.character.name %> </li>
+	<hr> <%= @user.username %> said: <%= com.content  %> to <%= com.character.name %>
 	<% end %>
 </ul>
