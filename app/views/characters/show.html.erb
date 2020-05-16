@@ -16,8 +16,15 @@
 <p> </p>
 <br>
 
+<% if @character.user == current_user %>
+<%= link_to 'Edit this character', edit_character_path, class: "button button2" %>
+<% end %>
 
+
+
+<p></p>
 <br>
+
 
 
 <%= link_to 'Add Comment', new_character_comment_path(@character) %>
@@ -30,7 +37,7 @@
  <% @character.comments.each do |c| %>
 
 	<% if c.content == 0 %>
-	There are no comments.
+	<p>There are no comments.</p>
 	<% else %>
 	<hr>
 	<%= c.user.try(:username) %>: <%= c.content %>
