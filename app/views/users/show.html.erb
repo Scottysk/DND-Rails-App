@@ -1,14 +1,15 @@
 <h1> <%= @user.username %>'s Profile </h1>
 
-<% if @characters.nil? %>
 
-<h2><%= @user.username %> currently has no characters.</h2>
+<h2> Your current characters: </h2>
+<%= characters_visibility %>
 
-<% else %>
+<%= render partial: "characters/characters", locals: {characters: @user.characters} %>
 
-<% @characters.each do |char| %>
+<br>
 
-<li> <%= link_to user.char, character_path(char) %> </li>
+<h2> Your comment feed: </h2>
 
-<% end %>
-<% end %>
+<%= comments_visibility %>
+
+<%= render partial: "comments/comments", locals: {comments: @user.comments} %>

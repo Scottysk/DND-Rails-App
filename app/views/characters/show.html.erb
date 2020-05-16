@@ -1,6 +1,7 @@
 <h1><%= @character.name %></h1>
 
-<br>
+<p> created by <%= @character.user.username %> </p>
+
 
 <h2> Race </h2>
 <%= @character.race %>
@@ -11,7 +12,10 @@
 <h2> Gender </h2>
 <%= @character.gender %>
 
+
 <p> </p>
+<br>
+
 
 <br>
 
@@ -33,5 +37,7 @@
 	<% end %>
 
 <% end %> 
+
+
 
 

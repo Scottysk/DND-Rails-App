@@ -1,4 +1,4 @@
-<!--- T E M P O R A R Y ---> <h1> <%= current_user.username %>'s Characters </h1>
+ <h1> <%= current_user.username %>'s Characters </h1>
 
 
 <% @characters.each do |char| %>
@@ -6,3 +6,4 @@
 <li> <%= link_to char.name, character_path(char) %> </li>
 
 <% end %>
+
