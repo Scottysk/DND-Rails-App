@@ -19,6 +19,7 @@ class CharactersController < ApplicationController
 	end
 
 	def show
+		@comments = Comment.all
 		@character = Character.find(params[:id]) 
 	end
 
@@ -31,6 +32,8 @@ class CharactersController < ApplicationController
 		@character.update(character_params)
 		redirect_to character_path
 	end
+
+
 
 	private
 

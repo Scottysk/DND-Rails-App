@@ -1,2 +1,14 @@
 <h1> <%= @user.username %>'s Profile </h1>
 
+<% if @characters.nil? %>
+
+<h2><%= @user.username %> currently has no characters.</h2>
+
+<% else %>
+
+<% @characters.each do |char| %>
+
+<li> <%= link_to char.name, character_path(char) %> </li>
+
+<% end %>
+<% end %>

@@ -1,1 +1,9 @@
 <h1> Welcome to the Dungeons and Dragons group finder! </h1>
+
+<h3> Current list of character </h3>
+
+<% @characters.each do |char| %>
+
+<li> <%= link_to char.name, character_path(char) %> </li>
+
+<% end %>

@@ -1,0 +1,10 @@
+<% if @character %>
+  <h1>Comments for <%= @character.name%></h1>
+<% else %>
+  <h1>All Comments</h1>
+<% end %>
+
+<ul>
+<<% @comments.each do |c|%>
+  <li><%= c.user.username%> says "<%= c.content%>" about this post: <strong><%= link_to c.character.name, character_path(c.character_id) %></strong></li>
+<% end %>

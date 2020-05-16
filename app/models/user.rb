@@ -2,6 +2,13 @@ class User < ApplicationRecord
 	has_secure_password
 
 	has_many :characters
+	has_many :comments
+	has_many :commented_characters, through: :comments, source: :character
+
+
+	#has_many :favorite_characters
+	#has_many :favorites, through: :favorite_characters, source: :character
+
 	validates :username, presence: true
 	validates :username, uniqueness: true
 
@@ -10,7 +17,6 @@ class User < ApplicationRecord
 			u.password = SecureRandom.hex
 		end
 	end
-
 
 
 

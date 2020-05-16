@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
-  resources :characters
+  resources :characters do
+    resources :comments
+  end
+  resources :comments
 
   root 'sessions#home'
 
@@ -13,7 +16,9 @@ Rails.application.routes.draw do
 
   patch 'characters/:id', to: 'characters#update'
 
+
   get '/auth/google_oauth2/callback' => 'sessions#omniauth' #omniauth
+
 
 
 end

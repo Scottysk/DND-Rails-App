@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
 	def home
+	 	@characters = Character.all
 	end
 
 	def new

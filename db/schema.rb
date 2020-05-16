@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_11_223423) do
+ActiveRecord::Schema.define(version: 2020_05_15_222951) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(version: 2020_05_11_223423) do
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "character_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_comments_on_character_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorite_characters", force: :cascade do |t|
+    t.integer "character_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -31,4 +48,6 @@ ActiveRecord::Schema.define(version: 2020_05_11_223423) do
   end
 
   add_foreign_key "characters", "users"
+  add_foreign_key "comments", "characters"
+  add_foreign_key "comments", "users"
 end
