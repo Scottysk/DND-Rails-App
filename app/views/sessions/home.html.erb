@@ -1,9 +1,9 @@
-<h1> Welcome to the Dungeons and Dragons group finder! </h1>
+<h1> Welcome to the Dungeons and Dragons character creator! </h1>
 
-<h3> Current list of character </h3>
+<h2> Current list of characters: </h2>
 
 <% @characters.each do |char| %>
 
-<li> <%= link_to char.name, character_path(char) %> </li>
+<hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | </li>
 
 <% end %>

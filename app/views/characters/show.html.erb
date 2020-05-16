@@ -20,7 +20,6 @@
 
 <h2><%= @character.comments.count %> Comments </h2>
 <% @character.comments %>
-<%= render 'comments/form' %>
 
 <p></p>
 
@@ -30,8 +29,9 @@
 	There are no comments.
 	<% else %>
 	<hr>
-	<%= c.user.try(:username) %> <%= c.content %>
+	<%= c.user.try(:username) %>: <%= c.content %>
 	<% end %>
 
 <% end %> 
+
 
