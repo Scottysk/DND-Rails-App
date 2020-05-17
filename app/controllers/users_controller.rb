@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def index
+		@users = User.all
+	end
+
 
 	def show
 		redirect_if_not_logged_in

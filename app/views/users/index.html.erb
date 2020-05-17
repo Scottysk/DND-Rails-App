@@ -1,13 +1,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-<%= form_for([@character, @character.comments.build]) do |f| %>
+<h1> List of all users: </h1>
 
 
-	<%= f.label :content, "Comment: " %>
-	<%= f.text_field :content %>
-
-	<%= f.button :submit %>
-
-
-<% end %> 
+<% @users.each do |u| %>
+<hr>
+<%= link_to u.username, user_path(u) %>
+<% end %>
