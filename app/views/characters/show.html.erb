@@ -1,6 +1,8 @@
 <h1><%= @character.name %></h1>
 
-<p> created by <%= @character.user.username %> </p>
+<p> created by <%= link_to @character.user.username, user_path(@character.user, @character) %> </p>
+
+
 
 
 <h2> Race </h2>

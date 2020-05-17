@@ -25,7 +25,7 @@ class CharactersController < ApplicationController
 
 	def edit
 		@character = Character.find(params[:id])
-		
+
 		if current_user.id == @character.user_id
 		else
 			redirect_to character_path
