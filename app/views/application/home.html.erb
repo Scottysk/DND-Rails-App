@@ -1,0 +1,28 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+         Welcome to the Dungeons and Dragons character creator!
+      </h1>
+    </div>
+  </div>
+</section>
+
+
+<h1> Welcome to the Dungeons and Dragons character creator! </h1>
+
+<h2> Current list of characters: </h2>
+
+
+<% @characters.each do |char| %>
+
+<hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | </li>
+
+
+<% end %>
+</html>
+

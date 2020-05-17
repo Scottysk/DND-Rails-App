@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :comments
 
-  root 'sessions#home'
+  root 'application#home'
 
   get '/register', to: 'users#new'
 
