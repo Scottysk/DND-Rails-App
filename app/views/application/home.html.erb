@@ -13,14 +13,13 @@
 </section>
 
 
-<h1> Welcome to the Dungeons and Dragons character creator! </h1>
 
 <h2> Current list of characters: </h2>
 
 
 <% @characters.each do |char| %>
 
-<hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | </li>
+<hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | Level: <%= char.level %> </li>
 
 
 <% end %>

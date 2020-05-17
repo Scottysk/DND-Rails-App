@@ -7,6 +7,6 @@ class Character < ApplicationRecord
 	#has_many :favorite_characters
 	#has_many :favorited_by, through: :favorite_charac, source: :user
 
-	validates :name, :gender, :race, :profession, presence: true
+	validates :name, :gender, :race, :profession, :level, presence: true
 	validates :name, length: {minimum: 2}
 end
