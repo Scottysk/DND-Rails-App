@@ -27,6 +27,56 @@
 <%= f.select(:profession, ["Bard", "Barbarian", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorceror", "Warlock", "Wizard","Blood Hunter"]) %>
 </div>
 
+<br>
+
+<p></p>
+
+
+<div class="form-group">
+<strong><%= f.label :alignment %></strong>
+<br>
+<%= f.label :alignment_lawful_good, 'Lawful Good' %>
+<%= f.radio_button :alignment, 'Lawful Good', :checked => true %> <br>
+
+
+<%= f.label :alignment_neutral_good, 'Neutral Good' %>
+<%= f.radio_button :alignment, 'Neutral Good' %> <br>
+
+<%= f.label :alignment_chaotic_good, 'Chaotic Good' %> 
+<%= f.radio_button :alignment, 'Chaotic Good' %> <br>
+
+<%= f.label :alignment_lawful_neutral, 'Lawful Neutral' %> 
+<%= f.radio_button :alignment, 'Lawful Neutral' %> <br>
+
+<%= f.label :alignment_neutral, 'Neutral' %> 
+<%= f.radio_button :alignment, 'Neutral' %> <br>
+
+<%= f.label :alignment_chaotic_neutral, 'Chaotic Neutral' %> 
+<%= f.radio_button :alignment, 'Chaotic Neutral' %> <br>
+
+<%= f.label :alignment_neutral_evil, 'Neutral Evil' %> 
+<%= f.radio_button :alignment, 'Neutral Evil' %> <br>
+
+<%= f.label :alignment_chaotic_evil, 'Chaotic Evil' %> 
+<%= f.radio_button :alignment, 'Chaotic Evil' %> <br>
+</div>
+
+<br>
+
+<p></p>
+
+
+<%= f.label :level %>
+<%= f.number_field :level, max: 20, min: 1 %>
+
+
+
+
+
+<!--- :name, :gender, :race, :profession, :alignment, :background, :level, :conditions, :skills --->
+
+
+
 <div class="field is-grouped">
 <div class="button">
 <%= f.submit %>
@@ -35,6 +85,5 @@
 
 
 <% end %>
-
 
 

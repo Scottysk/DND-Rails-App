@@ -19,7 +19,7 @@ class CharactersController < ApplicationController
 	end
 
 	def show
-		@comments = Comment.find(params[:id])
+
 		@character = Character.find(params[:id]) 
 	end
 
@@ -43,7 +43,10 @@ class CharactersController < ApplicationController
 	private
 
 	def character_params
-		params.require(:character).permit(:name, :gender, :race, :profession)
+		params.require(:character).permit(:name, :gender, :race, :profession, :alignment, :background, :level, :conditions, :skills)
 	end
 	
 end
+
+
+      

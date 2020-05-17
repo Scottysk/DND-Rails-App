@@ -8,6 +8,8 @@
 
 
 
+
+
 <div class="tile is-ancestor">
 <div class="tile is-vertical is-6">
 	<div class="tile">
@@ -16,6 +18,9 @@
 <p class="title"> Race </p>
 <p class="subtitle"><%= @character.race %></p>
 </article>
+
+
+
 
 
 <div class="tile is-child">
@@ -29,6 +34,20 @@
 <p class="title"> Gender </p>
 <p class="subtitle"><%= @character.gender %></p>
 </article>
+
+<article class="tile is-child notification is-primary">
+<p class="title"> Alignment </p>
+<p class="subtitle"><%= @character.alignment %></p>
+</article>
+
+<div class="tile is-ancestor">
+<div class="tile is-vertical is-5">
+<article class="tile is-child notification is-primary">
+<p class="title"> Level </p>
+<p class="subtitle"><%= @character.level %></p>
+</article>
+
+
 
 
 <p> </p>

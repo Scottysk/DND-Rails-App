@@ -17,6 +17,11 @@ ActiveRecord::Schema.define(version: 2020_05_15_222951) do
     t.string "gender"
     t.string "race"
     t.string "profession"
+    t.string "alignment"
+    t.string "background"
+    t.integer "level"
+    t.string "conditions"
+    t.string "skills"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -31,13 +36,6 @@ ActiveRecord::Schema.define(version: 2020_05_15_222951) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_comments_on_character_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "favorite_characters", force: :cascade do |t|
-    t.integer "character_id"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
