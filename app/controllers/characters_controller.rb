@@ -38,6 +38,13 @@ class CharactersController < ApplicationController
 		redirect_to character_path
 	end
 
+	def destroy
+		@character = Character.find(params[:id])
+
+		@character.destroy
+		redirect_to characters_path, :notice => "Your character has been deleted"
+	end
+
 
 
 	private

@@ -60,6 +60,7 @@
 
 <% if @character.user == current_user %>
 <%= link_to 'Edit this character', edit_character_path, class: "button button2" %>
+<%= link_to 'Delete this character', character_path(@character), :method => :delete, class: "button is-danger" %>
 <% end %>
 
 
