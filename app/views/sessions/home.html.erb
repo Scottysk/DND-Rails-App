@@ -2,8 +2,10 @@
 
 <h2> Current list of characters: </h2>
 
+
 <% @characters.each do |char| %>
 
 <hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | </li>
+
 
 <% end %>
