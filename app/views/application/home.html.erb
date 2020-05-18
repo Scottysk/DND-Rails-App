@@ -2,12 +2,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-<section class="hero is-primary">
+<section class="hero is-link">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
          Welcome to the Dungeons and Dragons character creator!
       </h1>
+      <h2 class="title">
+      	Sign up today to make your own or view characters!
+      </h2>
     </div>
   </div>
 </section>
@@ -21,7 +24,7 @@
 <% end %>
 
 
-
+<% if logged_in? %>
 <h2> Current list of characters: </h2>
 
 
@@ -40,6 +43,7 @@
 <% Character.elves.each do |c| %>
 
 <hr><%= c.name %>
+<% end %>
 
 
 <% end %>

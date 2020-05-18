@@ -32,13 +32,3 @@ class Character < ApplicationRecord
 end
 
 
-#if search
-#			character_type = Character.find_by(name: search)
-#				if character_type
-#					self.where(character_id: character_type)
-#				else
-#					Character.all
-#				end
-#			else
-#					Character.all
-#			end
