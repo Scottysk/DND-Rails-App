@@ -4,8 +4,23 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 
+<% form_tag characters_path, :method => 'get' do %>
+<p>
+	<%= text_field :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
+</p>
+<% end %>
 
- <h1> <%= current_user.username %>'s Characters </h1>
+
+
+
+<% @characters.each do |char| %>
+<hr><%= link_to char.name, character_path(char) %>
+<% end %>
+
+
+
+ <!--- <h1> <%= current_user.username %>'s Characters </h1>
 
 
 <% @characters.each do |char| %>
@@ -13,4 +28,4 @@
 <hr> <%= link_to char.name, character_path(char) %> 
 
 <% end %>
-
+---->

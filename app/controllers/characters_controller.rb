@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-	before_action :redirect_if_not_logged_in
+	before_action :redirect_if_not_logged_in, only: [:create]
 
 	def new
 		@character = Character.new
@@ -15,7 +15,8 @@ class CharactersController < ApplicationController
 	end
 
 	def index
-		@characters = current_user.characters
+		@characters = Character.search(params[:search])
+		# @characters = current_user.characters
 	end
 
 	def show
@@ -50,7 +51,7 @@ class CharactersController < ApplicationController
 	private
 
 	def character_params
-		params.require(:character).permit(:name, :gender, :race, :profession, :alignment, :background, :level, :conditions, :skills)
+		params.require(:character).permit(:name, :gender, :race, :profession, :alignment, :background, :level, :conditions, :skills, :search, :character_id)
 	end
 	
 end
