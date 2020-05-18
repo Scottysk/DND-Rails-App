@@ -25,3 +25,25 @@
 <% end %>
 </html>
 
+
+<% if Character.elves.present? %>
+<h2> Have you heard of the High Elves?... Well here's a list. </h2>
+
+<% Character.elves.each do |c| %>
+
+<hr><%= c.name %>
+
+
+<% end %>
+<% else %>
+
+<% end %>
+
+<br> 
+
+<h2> 
+
+<% Character.most_recent.each do |c| %>
+
+<hr>	<%= c.name %>
+	<% end %> 

@@ -9,4 +9,12 @@ class Character < ApplicationRecord
 
 	validates :name, :gender, :race, :profession, :level, presence: true
 	validates :name, length: {minimum: 2}
+
+
+	scope :most_recent, -> {order(name: :asc)}
+	scope :elves, -> { where(race: "Elf")}
+
+
+
+
 end
