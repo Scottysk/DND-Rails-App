@@ -12,8 +12,8 @@
 	<% end %>
 
 	<%= f.label :content, "Comment: " %>
-	<%= f.text_area :content %>
+	<%= f.text_area :content, size: "50x4" %>
 	<ul>
-	<%= f.submit %>
+	<%= f.button :submit => "Submit", class: "button is-link" %>
 
 	<% end %>

@@ -30,9 +30,9 @@
 
 <% @characters.take(5).shuffle.each do |char| %>
 
-<hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | Level: <%= char.level %> </li>
+<hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | Level: <%= char.level %>
 
 
 <% end %>
-</html>
+
 
