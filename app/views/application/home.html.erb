@@ -24,11 +24,11 @@
 <% end %>
 
 
-<% if logged_in? %>
-<h2> Current list of characters: </h2>
+
+<h2> Small list of characters people have made: </h2>
 
 
-<% @characters.each do |char| %>
+<% @characters.take(5).shuffle.each do |char| %>
 
 <hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | Level: <%= char.level %> </li>
 
@@ -36,26 +36,3 @@
 <% end %>
 </html>
 
-
-<% if Character.elves.present? %>
-<h2> Have you heard of the High Elves?... Well here's a list. </h2>
-
-<% Character.elves.each do |c| %>
-
-<hr><%= c.name %>
-<% end %>
-
-
-<% end %>
-<% else %>
-
-<% end %>
-
-<br> 
-
-<h2> 
-
-<% Character.most_recent.each do |c| %>
-
-<hr>	<%= c.name %>
-	<% end %> 

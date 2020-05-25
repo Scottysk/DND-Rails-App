@@ -4,28 +4,47 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 
-<% form_tag characters_path, :method => 'get' do %>
-<p>
-	<%= text_field :search, params[:search] %>
-	<%= submit_tag "Search", :name => nil %>
-</p>
+<%= form_tag(characters_path, :method => :get) do %>
+<%= label_tag(:search, "Search: ") %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag("Search", class: "button button2", :name => nil) %>
 <% end %>
 
 
 
 
-<% @characters.each do |char| %>
-<hr><%= link_to char.name, character_path(char) %>
-<% end %>
-
-
-
- <!--- <h1> <%= current_user.username %>'s Characters </h1>
+<% if logged_in? %>
+<h2> Current list of characters: </h2>
 
 
 <% @characters.each do |char| %>
 
-<hr> <%= link_to char.name, character_path(char) %> 
+<hr> <%= link_to char.name, character_path(char) %> | <%= char.race %> | <%= char.profession %> | Level: <%= char.level %> </li>
+
 
 <% end %>
----->
+</html>
+
+
+<% if Character.elves.present? %>
+<h2> Have you heard of the High Elves?... Well here's a list. </h2>
+
+<% Character.elves.each do |c| %>
+
+<hr><%= c.name %>
+<% end %>
+
+
+<% end %>
+<% else %>
+
+<% end %>
+
+<br> 
+
+<h2> 
+
+<% Character.most_recent.each do |c| %>
+
+<hr>	<%= c.name %>
+	<% end %> 
