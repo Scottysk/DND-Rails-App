@@ -8,7 +8,8 @@ class CharactersController < ApplicationController
 	def create
 		@character = current_user.characters.build(character_params)
 		if @character.save
-			redirect_to characters_path
+			flash[:created] = "Character successfully created!"
+			redirect_to character_path(@character)
 		else
 			render :new
 		end
@@ -42,7 +43,7 @@ class CharactersController < ApplicationController
 		@character = Character.find(params[:id])
 
 		@character.destroy
-		flash[:notice] = "Your character has been deleted"
+		flash[:notice] = "Your character has been deleted."
 		redirect_to characters_path
 	end
 

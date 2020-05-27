@@ -2,6 +2,10 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 
+
+<%= flash[:created] if flash[:created] %>
+
+
 <h1><%= @character.name %></h1>
 
 <p> created by <%= link_to @character.user.username, user_path(@character.user, @character) %> </p>
@@ -86,13 +90,10 @@
 <ul>
 
  <% @character.comments.each do |c| %>
-	<% if c.content == 0 %>
-	<p>There are no comments.</p>
-	<% else %>
 	<hr>
 	<%= c.user.try(:username) %>: <%= c.content %>
 
-	<% end %>
+
 
 <% end %> 
 
