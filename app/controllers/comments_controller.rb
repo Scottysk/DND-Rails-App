@@ -29,8 +29,12 @@ class CommentsController < ApplicationController
 	end
 
 	def show
-		@character = Character.find_by(id: params[:id])
-		@comment = Comment.find_by(id: params[:id])
+		if params[:character_id] && @character = Character.find_by_id(params[:character_id])
+			@comments = @character.comments
+		else
+			redirect_to character_page
+
+	end
 		# @comments = Comment.all
 		# redirect_to comments_path of !@comment
 	end
