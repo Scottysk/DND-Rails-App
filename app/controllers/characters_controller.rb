@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-	before_action :redirect_if_not_logged_in, only: [:create]
+	before_action :redirect_if_not_logged_in, only: [:create, :show]
 
 	def new
 		@character = Character.new
