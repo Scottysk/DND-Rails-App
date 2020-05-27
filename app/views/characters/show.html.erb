@@ -27,7 +27,7 @@
 
 
 
-<div class="tile is-child">
+<div class="tile is-parent">
 <div class="tile is-vertical is-6">
 <article class="tile is-child notification is-info">
 <p class="title"> Profession </p>
@@ -39,22 +39,38 @@
 <p class="subtitle"><%= @character.gender %></p>
 </article>
 
-<article class="tile is-child notification is-primary">
+<article class="tile is-child notification is-success">
 <p class="title"> Alignment </p>
 <p class="subtitle"><%= @character.alignment %></p>
 </article>
 
-<div class="tile is-ancestor">
-<div class="tile is-vertical is-5">
-<article class="tile is-child notification is-primary">
+<div class="tile is-child">
+<div class="tile is-vertical is-8">
+<article class="tile is-child notification is-danger">
 <p class="title"> Level </p>
 <p class="subtitle"><%= @character.level %></p>
 </article>
 
 
-<p><%= @character.conditions %></p>
 
-<p><%= @character.skills %></p>
+<% if @character.conditions.present? %>
+<div class="tile is-ancestor">
+<div class="tile is-vertical is-50">
+<article class="tile is-child notification is-warning">
+<p class="title"> Conditions </p>
+<p><%= @character.conditions %></p>
+</article>
+<% end %>
+
+<p> </p>
+
+<% if @character.skills.present? %>
+<div class="tile is-child">
+<article class="tile is-child notification is-info">
+<p class="title"> Skills </p>
+<p class="subtitle"><%= @character.skills %></p>
+</article>
+<% end %>
 
 
 
