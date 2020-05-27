@@ -32,11 +32,8 @@ class CommentsController < ApplicationController
 		if params[:character_id] && @character = Character.find_by_id(params[:character_id])
 			@comments = @character.comments
 		else
-			redirect_to character_page
-
-	end
-		# @comments = Comment.all
-		# redirect_to comments_path of !@comment
+			redirect_to character_path
+		end
 	end
 
 
