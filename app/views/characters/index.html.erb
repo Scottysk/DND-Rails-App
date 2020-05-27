@@ -31,13 +31,10 @@
 
 <% Character.elves.each do |c| %>
 
-<hr><%= c.name %>
-<% end %>
-
+<hr><%= link_to c.name, character_path(c) %>
 
 <% end %>
-<% else %>
-
+<% end %>
 <% end %>
 
 <br> 

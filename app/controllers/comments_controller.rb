@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to characters_path(@character)
     else
-      redirect_to characters_path(@character)
+      redirect_back fallback_location: root_path
     end
   end
 
@@ -21,12 +21,12 @@ class CommentsController < ApplicationController
 		end
 	end
 
-	def destroy
-		@character = Character.find(params[:character_id])
-		@comment = @character.comments.find(params[:id])
-		@comment.destroy
-		redirect_to character_path(@character)
-	end
+	# def destroy
+	#	@character = Character.find(params[:character_id])
+	#	@comment = @character.comments.find(params[:id])
+	#	@comment.destroy
+	#	redirect_to character_path(@character)
+	# end
 
 	def show
 		if params[:character_id] && @character = Character.find_by_id(params[:character_id])
