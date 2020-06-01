@@ -1,5 +1,7 @@
 class CharactersController < ApplicationController
-	before_action :redirect_if_not_logged_in, only: [:create]
+	before_action :redirect_if_not_logged_in
+	before_action :set_character, only: [:show, :edit, :update, :destroy]
+	before_action :authorized?, only: [:edit, :update, :destroy]
 
 	def new
 		@character = Character.new
@@ -21,27 +23,17 @@ class CharactersController < ApplicationController
 	end
 
 	def show
-		@character = Character.find(params[:id]) 
 	end
 
 	def edit
-		@character = Character.find(params[:id])
-
-		if current_user.id == @character.user_id
-		else
-			redirect_to character_path
-		end
 	end
 
 	def update
-		@character = Character.find(params[:id])
 		@character.update(character_params)
-		redirect_to character_path
+		redirect_to character_path(@character)
 	end
 
 	def destroy
-		@character = Character.find(params[:id])
-
 		@character.destroy
 		flash[:notice] = "Your character has been deleted."
 		redirect_to characters_path
@@ -50,6 +42,16 @@ class CharactersController < ApplicationController
 
 
 	private
+
+	def authorized?
+		if current_user.id != @character.user_id
+			redirect_to root_path
+		end
+	end
+
+	def set_character
+		@character = Character.find(params[:id]) 
+	end
 
 	def character_params
 		params.require(:character).permit(:name, :gender, :race, :profession, :alignment, :background, :level, :conditions, :skills, :search, :character_id)

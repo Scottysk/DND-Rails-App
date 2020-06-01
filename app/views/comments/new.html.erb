@@ -6,7 +6,6 @@
 <%= form_for([@comment.character, @comment]) do |f| %>
 	<% if !@comment.character %>
 	<%= f.label :character %>
-	<%=collection_select :character_id, Character.all, :id, :title %>
 	<% else %>
 	<%= f.hidden_field :character_id %>
 	<% end %>

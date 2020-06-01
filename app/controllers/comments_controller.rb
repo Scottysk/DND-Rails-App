@@ -1,6 +1,15 @@
 class CommentsController < ApplicationController
 	before_action :redirect_if_not_logged_in
 
+	def new
+		if params[:character_id] && @character = Character.find_by_id(params[:character_id])
+			@comment = @character.comments.build
+		else
+			@error = "This page doesn't exist" if params[:character_id]
+			@comment = Comment.new
+		end
+	end
+
 
 
 	def create
@@ -12,14 +21,7 @@ class CommentsController < ApplicationController
     end
   end
 
-	def new
-		if params[:character_id] && @character = Character.find_by_id(params[:character_id])
-			@comment = @character.comments.build
-		else
-			@error = "This page doesn't exist" if params[:character_id]
-			@comment = Comment.new
-		end
-	end
+
 
 	# def destroy
 	#	@character = Character.find(params[:character_id])
